@@ -1,0 +1,83 @@
+<!doctype html>
+<html class="no-js" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Recuperar Login MundoCap</title>
+    <link rel="stylesheet" href="<?php echo INIT?>/src/css/test.css">
+    <link rel="stylesheet" href="<?php echo INIT?>/src/css/foundation-icons.css">
+</head>
+<body>
+<noscript>
+    <p>Su navegador no admite javascript. Por favor activeló para la navegación.</p>
+</noscript>
+<header id="foo">
+    <div class="grid-x navegacion grid-padding-x">
+        <div class="cell">
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <a href="<?php echo INIT?>/">
+                        <img src="<?php echo INIT?>/src/images/globo3.png" height="62" width="62">
+                    </a>
+                    <h2 style="display: none;">certificado de aptitud Profesional</h2>
+                </div>
+                <div class="top-bar-right">
+                    <a data-toggle="menuPrincipal" class="menu-icon" style="line-height: -10rem;"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<br>
+<div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+        <nav class="off-canvas position-left" id="menuPrincipal" data-off-canvas data-transition="push">
+            <?php require_once 'navegacion.phtml'?>
+        </nav>
+
+        <div class="off-canvas-content" data-off-canvas-content>
+            <div class="grid-x grid-padding-x grid-padding-y">
+                <div class="cell small-1 medium-3 large-4"></div>
+                <div class="cell small-10 medium-6 large-4" style="border: 2px solid #00A5E3">
+                    <h4 class="text-center"><i style="color: #2ca02c">RECUPERE SU ACCESO</i></h4>
+                    <br>
+                    <form action="<?php echo INIT?>/cap/recuperar" method="post">
+                        <input type="hidden" name="skey" value="<?php echo $skey?>">
+                        <input type="text" name="email" required placeholder="E-MAIL">
+                        <input type="password" name="contrasena" required placeholder="NUEVA CONTRASEÑA">
+                        <input type="submit" class="success expanded button" value="RECUPERAR">
+                    </form>
+                    <p class="help-text">
+                        En el momento de mandar los datos se le enviará un correo con un enlace para confirmar la cuenta.
+                        Si no está en la bandeja de entrada, por favor mire en la carpeta de
+                        'span'; o bien, mándeme un e-mail.
+                    </p>
+                    <p class="h6 help-text" style="color: red">
+                        <?php if (isset($info)) echo $info?>
+                    </p>
+                </div>
+                <div class="cell small-1 medium-3 large-4"></div>
+            </div>
+            <div class="grid-x grid-padding-x grid-padding-y">
+                <div class="cell small-1 medium-3 large-4"></div>
+                <div class="cell small-10 medium-6 large-4">
+                    <hr>
+                    <p><a href="<?php echo INIT?>/cap/cookies">Privacidad</a> <span style="color: #3a6291;">|</span> <a href="<?php echo INIT?>/cap/baja">Baja</a></p>
+                </div>
+                <div class="cell small-1 medium-3 large-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php if (empty($_SESSION['ocultarC'])) {
+    require_once 'ocultar.phtml';
+}?>
+
+<script src="<?php echo INIT?>/modules/jquery/dist/jquery.js"></script>
+<script src="<?php echo INIT?>/modules/what-input/dist/what-input.js"></script>
+<script src="<?php echo INIT?>/modules/foundation-sites/dist/js/foundation.js"></script>
+<script src="<?php echo INIT?>/src/js/app2.js"></script>
+</body>

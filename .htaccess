@@ -1,0 +1,27 @@
+AddDefaultCharset utf-8
+RewriteEngine On
+
+# Some hosts may require you to use the `RewriteBase` directive.
+# If you need to use the `RewriteBase` directive, it should be the
+# absolute physical path to the directory that contains this htaccess file.
+#
+# RewriteBase /
+#redirect 301 http://mundocap.es http://www.mundocap.es
+#redirect 301 http://mundocap.es/index.php http://www.mundocap.es
+
+#con las siguientes dos lineas lo que hacemos es que diriguimos
+# los www.mundocap.es a mundocap.es a secas
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]
+
+
+RewriteCond %{HTTP_HOST} ^www.mundocap.es [NC]
+RewriteRule ^(.*)$ http://mundocap.es/$1 [L,R=301]
+
+Redirect 301 http://mundocap.es/index.php http://www.mundocap.es
+
+#eliminar el index.php: no funciona
+#RewriteCond %{THE_REQUEST} ^(GET|HEAD)\ /index\.php/[^\ ]+
+#RewriteRule ^index\.php/(.*)$ /$1 [L,R=301]

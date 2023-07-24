@@ -1,0 +1,11 @@
+{
+    "require": {
+      "slim/slim":		"~2.0",
+      "j4mie/paris": 	"*"
+    },
+
+    "autoload": {
+      "psr-4": {
+      }
+    }
+}

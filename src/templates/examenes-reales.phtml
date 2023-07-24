@@ -1,0 +1,105 @@
+<!doctype html>
+<html class="no-js" lang="es">
+<?php header('Content-Type: text/html; charset=UTF-8'); ?>
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="es" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="mundocap, cap, examenes cap, examenes reales cap, examenes mercancia, examenes viajeros, test viajeros, test mercancias" />
+    <meta name="author" content="Fco Sanz">
+    <meta name="description" content="Se puede realizar test reales realizados en distintas provincias">
+    <title>Examenes reales mundoCap</title>
+    <link rel="stylesheet" href="<?php echo INIT?>/src/css/test.css">
+    <link rel="stylesheet" href="<?php echo INIT?>/src/css/foundation-icons.css">
+</head>
+<body>
+
+<noscript>
+    <p>Su navegador no admite javascript. Por favor activeló para la navegación.</p>
+</noscript>
+
+<a name="arriba"></a>
+
+<header id="foo">
+    <div class="grid-x navegacion grid-padding-x">
+        <div class="cell">
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <a href="<?php echo INIT?>/">
+                        <img src="<?php echo INIT?>/src/images/globo3.png" height="62" width="62">
+                    </a>
+                    <h2 style="display: none;">certificado de aptitud Profesional</h2>
+                </div>
+                <div class="top-bar-right">
+                    <a data-toggle="menuPrincipal" class="menu-icon" style="line-height: -10rem;"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grid-x grid-padding-x" style="background-color: #d8d8d8">
+        <div class="cell">
+            <a href="<?php echo INIT?>/">Inicio</a> >> <?php echo $enlace?>
+        </div>
+    </div>
+</header>
+
+<div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+        <nav class="off-canvas position-left" id="menuPrincipal" data-off-canvas data-transition="push">
+            <?php require_once 'navegacion.phtml'?>
+        </nav>
+        <br>
+        <div class="off-canvas-content" data-off-canvas-content>
+
+            <div class="grid-x grid-padding-x">
+                <div class="cell medium-6 medium-centered">
+                    <h5>MERCANCÍAS</h5>
+                    <div class="callout secondary">
+                        <ol>
+                            <?php foreach ($archivoMercancia as $archivosM) { ?>
+                                <li><a href="examenes-reales/mercancia/<?php echo $archivosM;?>"><?php echo $archivosM?></a></li>
+                            <?php }?>
+                        </ol>
+                    </div>
+                </div>
+                <div class="cell medium-6 medium-centered">
+                    <h5>VIAJEROS</h5>
+                    <div class="callout secondary">
+                        <ol>
+                            <?php foreach ($archivoViajero as $archivosV) { ?>
+                                <li><a href="examenes-reales/viajero/<?php echo $archivosV;?>"><?php echo $archivosV?></a></li>
+                            <?php }?>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php require_once 'footer.phtml'?>
+    </div>
+</div>
+
+<?php if (empty($_SESSION['ocultarC'])) {
+    require_once 'ocultar.phtml';
+}?>
+
+<script src="<?php echo INIT?>/modules/jquery/dist/jquery.js"></script>
+<script src="<?php echo INIT?>/modules/what-input/dist/what-input.js"></script>
+<script src="<?php echo INIT?>/modules/foundation-sites/dist/js/foundation.js"></script>
+<script src="<?php echo INIT?>/src/js/app2.js"></script>
+
+<?php if (MODO=='production'){ ?>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-50863084-1', 'mundocap.es');
+        ga('send', 'pageview');
+
+    </script>
+<?php } ?>
+</body>
+</html>

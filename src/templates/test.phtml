@@ -1,0 +1,189 @@
+<!doctype html>
+<html class="no-js" lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type: text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="es" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="<?php echo $keyWords?>" />
+    <meta name="author" content="Fco Sanz">
+    <meta name="description" content=<?php echo $descripcion?>>
+    <title><?php echo $title?></title>
+
+    <link rel="stylesheet" href="<?php echo INIT?>/src/css/test.css">
+    <link rel="stylesheet" href="<?php echo INIT?>/src/css/foundation-icons.css">
+</head>
+<body>
+
+<noscript>
+    <p>Su navegador no admite javascript. Por favor activeló para la navegación.</p>
+</noscript>
+
+<a name="arriba" class="arriba"></a>
+
+<form name="myForm" id="inicio" action="<?php echo INIT?>/cap/test/grabar-datos" method="post">
+<header id="foo">
+    <div class="grid-x navegacion grid-padding-x">
+        <div class="cell">
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <a href="<?php echo INIT?>/">
+                    <img src="<?php echo INIT?>/src/images/globo3.png" height="62" width="62">
+                    </a>
+                    <h2 style="display: none;">certificado de aptitud Profesional</h2>
+                </div>
+                <div class="top-bar-right">
+                    <a data-toggle="menuPrincipal" class="menu-icon" style="line-height: -10rem;"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grid-x grid-padding-x">
+        <div class="cell">
+            <a href="<?php echo INIT?>/">Inicio</a>  >> <span style="color: black;"><?php echo $enlace?></span>
+        </div>
+    </div>
+
+    <div class="grid-x">
+        <div class="cell">
+            <div class="callout primary information">
+                <h1 style="font-weight: bold;" class="text-center h2"><?php echo $elTitulo?></h1>
+                <h2 class="text-center h3"><?php echo $subTitulo?></h2>
+                <p>Los cálculos realizados para la nota, se realizan en la proporción
+                    que indica <b>'Fomento'</b> y según el número de preguntas ( Punto por acierto y medio punto por fallo ).
+                </p>
+                <p>
+                    En los simulacros tienen el formato de examen - 25 primeras específicas y el resto comunes. En la sección de los exámenes
+                    reales, las preguntas no están en el mismo orden que el examen de fomento por razones de
+                    eficiencia de la WEB.
+                </p>
+                <p>
+                    Si has iniciado sesión, puedes grabar los datos para llevar el avance de tus progresos mediante el botón 'Envíar datos'.
+                </p>
+                <div class="callout">
+                    <article class="grid-x grid-padding-x">
+                        <div class="cell medium-4">
+                            <label for="aciertos">Aciertos
+                                <input type="text" name="aciertos" id="aciertos" value="0" readonly="readonly" />
+                            </label>
+                        </div>
+                        <div class="cell medium-4">
+                            <label for="fallos">Fallos
+                                <input type="text" name="fallos" id="fallos" value="0" readonly/>
+                            </label>
+                        </div>
+                        <div class="cell medium-4">
+                            <label for="nulas">Sin Contestar
+                                <input type="text" name="nulas" id="nulas" value="<?php $totales = count($preguntas);echo $totales?>" readonly/>
+                            </label>
+                        </div>
+                    </article>
+                    <article class="grid-x grid-padding-x">
+                        <div class="cell small-6">
+                            <label for="nota">Nota (%)
+                                <input type="text" name="nota" id="nota" value="" readonly/>
+                            </label>
+                        </div>
+                        <div class="cell small-6">
+                            <label for="reloj">Duración (Minutos)
+                                <input type="text" class="reloj" name="reloj" size="10" value = "0" readonly />
+                            </label>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="off-canvas-wrapper">
+<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+    <nav class="off-canvas position-left" id="menuPrincipal" data-off-canvas data-transition="push">
+        <?php require_once 'navegacion.phtml'?>
+    </nav>
+
+    <div class="off-canvas-content" data-off-canvas-content>
+
+        <section class="grid-container">
+            <?php $contador = 1; foreach ($preguntas as $pregunta) { ?>
+                <?php //echo $pregunta->tipo ?>
+                <div class="callout secondary">
+                    <p><span class="primary badge" style="font-size: 15px; font-weight: bold; background-color: #4472a9;"><?php echo $contador ?></span></p>
+                    <p>COD: <?php echo $pregunta->cod ?></p>
+                    <input type="hidden" name="<?php echo 'codigo'.$contador?>" value="<?php echo $pregunta->cod?>"/>
+                    <input type="hidden" name="<?php echo 'solucion'.$contador ?>" value="<?php echo $pregunta->solucion ?>" id="<?php echo 'solucion'.$contador?>" />
+
+                    <h3 class="h5" style="color: #4472a9; font-weight: 600; /*font-size: 1.4rem;*/"><?php echo /*utf8_encode($pregunta->pregunta)*/ $pregunta->pregunta?></h3>
+                    <input type="hidden" name="pregunta<?php echo $contador?>" value="<?php echo /*utf8_encode($pregunta->pregunta)*/ $pregunta->pregunta?>">
+                    <input type="radio" data="<?php echo $contador?>" id="<?php echo 'p'.$contador.'A' ?>" name="<?php echo 'respuesta'.$contador.'A'?>" value="A" />
+                    <span id="<?php echo 'e'.$contador.'A'?>"><?php echo 'A. '.$pregunta->respA ?></span>
+                    <br>
+                    <input type="radio" data="<?php echo $contador?>" id="<?php echo 'p'.$contador.'B' ?>" name="<?php echo 'respuesta'.$contador.'B'?>" value="B" />
+                    <span id="<?php echo 'e'.$contador.'B'?>"><?php echo 'B. '.$pregunta->respB ?></span>
+                    <br>
+                    <input type="radio" data="<?php echo $contador?>" id="<?php echo 'p'.$contador.'C' ?>" name="<?php echo 'respuesta'.$contador.'C'?>" value="C" />
+                    <span id="<?php echo 'e'.$contador.'C'?>"><?php echo 'C. '.$pregunta->respC ?></span>
+                    <br>
+                    <input type="radio" data="<?php echo $contador?>" id="<?php echo 'p'.$contador.'D' ?>" name="<?php echo 'respuesta'.$contador.'D'?>" value="D" />
+                    <span id="<?php echo 'e'.$contador.'D'?>"><?php echo 'D. '.$pregunta->respD ?></span>
+                    <br>
+                    <p id="<?php echo "respuesta".$contador ?>" style="color: blue;">&nbsp;</p>
+                    <p><?php echo $pregunta->norma ?></p>
+                    <input type="hidden" name="norma" value="<?php echo /*utf8_encode($pregunta->pregunta)*/ $pregunta->norma?>">
+                </div>
+            <?php $contador++; }?>
+            <?php if (count($preguntas)) {?>
+                <div class="grid-x">
+                    <div class="small-10 cell">
+                        <input class="button success" id="enviar" type="submit" value="Grabar Datos" style="color: white;"/>
+                        <input class="button success" id="crearExamen" type="submit" formaction="<?php echo INIT?>/cap/test/crear-examen" value="Crear Examen para Profesor" style="color: white;"/>
+                        <p class="help-text">
+                            Se grabarán los datos de las preguntas erróneas y nulas para poder trabajarlos más tarde.
+                            Asimismo se grabaran datos como nota, aciertos, fallos, nulas y tiempo del test.
+                            <strong>Si no está dado de alta no podrá usar esta opción.</strong>
+                        </p>
+                    </div>
+                    <div class="small-2 cell text-right">
+                        <a class="primary badge" id="arriba" href=".arriba" style="font-size: 20px; font-weight: bold;"><span class="fi-arrow-up"></span></a>
+                    </div>
+                </div>
+            <?php } else {?>
+                <div class="grid-x">
+                    <div class="small-10 cell">
+                        <p>
+                            No se han encontrado datos con los parámetros de búsqueda introducidos.
+                        </p>
+                    </div>
+                </div>
+            <?php }?>
+        </section>
+    </div>
+</form>
+    <?php require_once 'footer.phtml'?>
+</div>
+</div>
+
+<?php if (empty($_SESSION['ocultarC'])) {
+    require_once 'ocultar.phtml';
+}?>
+
+<script src="<?php echo INIT?>/modules/jquery/dist/jquery.js"></script>
+<script src="<?php echo INIT?>/modules/what-input/dist/what-input.js"></script>
+<script src="<?php echo INIT?>/modules/foundation-sites/dist/js/foundation.js"></script>
+<script src="<?php echo INIT?>/src/js/app.js"></script>
+
+<?php if (MODO=='production'){ ?>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-50863084-1', 'mundocap.es');
+        ga('send', 'pageview');
+
+    </script>
+<?php } ?>
+</body>
+</html>

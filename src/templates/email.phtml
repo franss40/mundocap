@@ -1,0 +1,154 @@
+<!doctype html>
+<html class="no-js" lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="mundocap email" />
+    <meta name="author" content="Fco Sanz">
+    <meta name="description" content="Permite comunicarse con el Webmaster de mundoCAP">
+    <title>Contacto MundoCap</title>
+    <link rel="stylesheet" href="<?php echo INIT?>/src/css/test.css">
+    <link rel="stylesheet" href="<?php echo INIT?>/src/css/foundation-icons.css">
+
+    <style>
+        /*
+        .g-recaptcha {
+            transform:scale(1);
+            -webkit-transform:scale(1);
+            transform-origin:0 0;
+            -webkit-transform-origin:0 0;
+
+            display: inline;
+            max-width: 100%;
+
+        }
+
+        #rc-imageselect {
+            transform:scale(1);
+            -webkit-transform:scale(1);
+            transform-origin:0 0;
+            -webkit-transform-origin:0 0;
+        }
+        @media screen and (max-height: 575px) {
+            #rc-imageselect, .g-recaptcha {
+                transform: scale(0.77);
+                -webkit-transform: scale(0.77);
+                transform-origin: 0 0;
+                -webkit-transform-origin: 0 0;
+            }
+        }
+
+        .g-recaptcha>div{
+            max-width: 100%!important;
+           width: 100% !important;
+           height: 150px;
+           transform:scale(1.2);
+            webkit-transform:scale(1.2);
+           text-align: center;
+           position: relative;
+        }
+        */
+    </style>
+</head>
+<body>
+<noscript>
+    <p>Su navegador no admite javascript. Por favor activeló para la navegación.</p>
+</noscript>
+
+<header id="foo">
+    <div class="grid-x navegacion grid-padding-x">
+        <div class="cell">
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <a href="<?php echo INIT?>/">
+                        <img src="<?php echo INIT?>/src/images/globo3.png" height="62" width="62">
+                    </a>
+                    <h2 style="display: none;">certificado de aptitud Profesional</h2>
+                </div>
+                <div class="top-bar-right">
+                    <a data-toggle="menuPrincipal" class="menu-icon" style="line-height: -10rem;"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grid-x grid-padding-x">
+        <div class="cell">
+            <a href="<?php echo INIT?>/">Inicio</a>  >> <span style="color: #2ca02c">formulario de contacto</span>
+        </div>
+    </div>
+</header>
+<br>
+<div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+        <nav class="off-canvas position-left" id="menuPrincipal" data-off-canvas data-transition="push">
+            <?php require_once 'navegacion.phtml'?>
+        </nav>
+
+        <div class="off-canvas-content" data-off-canvas-content>
+            <div class="grid-x grid-padding-x grid-padding-y">
+                <div class="cell small-1 medium-3 large-4"></div>
+                <div class="cell small-10 medium-6 large-4" style="border: 2px solid #00A5E3">
+                    <h4 class="text-center"><i style="color: #2ca02c">Formulario de contacto</i></h4>
+                    <br>
+
+                    <form action="" method="post">
+                        <input type="hidden" name="skey" value="<?php echo $skey?>">
+                        <input type="hidden" name="numero1" value="<?php echo $numero1?>">
+                        <input type="hidden" name="numero2" value="<?php echo $numero2?>">
+                        <label>
+                            Tu email
+                            <input type="text" name="email" required placeholder="E-MAIL">
+                        </label>
+                        <label>
+                            Tu pregunta o sugerencia
+                            <textarea rows="5" name="texto" placeholder="Escriba aquí su duda o sugerencia" required></textarea>
+                        </label>
+                        <label>
+                            Multiplique <?php echo $numero1.' * '.$numero2?>
+                            <input type="text" name="multiplicar" required placeholder="NO ROBOT">
+                        </label>
+                        <input type="submit" class="success expanded button" value="Envíar">
+                    </form>
+
+                    <p class="h6 help-text" style="color: red">
+                        <?php if (isset($info)) echo $info?>
+                    </p>
+                </div>
+                <div class="cell small-1 medium-3 large-4"></div>
+            </div>
+            <div class="grid-x grid-padding-x grid-padding-y">
+                <div class="cell small-1 medium-3 large-4"></div>
+                <div class="cell small-10 medium-6 large-4">
+                    <hr>
+                    <p><a href="<?php echo INIT?>/cap/cookies">Privacidad</a> <span style="color: #3a6291;">|</span> <a href="<?php echo INIT?>/cap/baja">Baja</a></p>
+                </div>
+                <div class="cell small-1 medium-3 large-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php if (empty($_SESSION['ocultarC'])) {
+    require_once 'ocultar.phtml';
+}?>
+
+<script src="<?php echo INIT?>/modules/jquery/dist/jquery.js"></script>
+<script src="<?php echo INIT?>/modules/what-input/dist/what-input.js"></script>
+<script src="<?php echo INIT?>/modules/foundation-sites/dist/js/foundation.js"></script>
+<script src="<?php echo INIT?>/src/js/app2.js"></script>
+
+<?php if (MODO=='production'){ ?>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-50863084-1', 'mundocap.es');
+        ga('send', 'pageview');
+
+    </script>
+<?php } ?>
+</body>
+</html>

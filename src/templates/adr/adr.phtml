@@ -1,0 +1,238 @@
+<!doctype html>
+<html class="no-js" lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type: text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="es" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="<?php echo $keyWords?>" />
+    <meta name="author" content="Fco Sanz">
+    <meta name="description" content=<?php echo $descripcion?>>
+    <title><?php echo $title?></title>
+
+    <!--<link rel="stylesheet" href="<?php echo INIT?>/src/css/test.css">-->
+    <link rel="stylesheet" href="<?php echo INIT?>/src/css/adr.min.css">
+    <link rel="stylesheet" href="<?php echo INIT?>/src/css/foundation-icons.css">
+</head>
+<body>
+
+<noscript>
+    <p>Su navegador no admite javascript. Por favor activeló para la navegación.</p>
+</noscript>
+
+<header id="foo">
+    <div class="grid-x navegacion grid-padding-x">
+        <div class="cell">
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <ul class="menu">
+                        <li class="menu-text">CAP</li>
+                        <li><a href="<?php echo INIT?>/adr" style="color: white;">ADR</a></li>
+                        <li><a href="" style="color: white;">CONSEJERO</a></li>
+                    </ul>
+                </div>
+                <div class="top-bar-right">
+                    <a data-toggle="menuPrincipal" class="menu-icon" style="line-height: -10rem;"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grid-x grid-padding-x">
+        <div class="cell">
+            <a href="<?php echo INIT?>/">Inicio</a>  >> <span style="color: black;"><?php echo $enlace?></span>
+        </div>
+    </div>
+</header>
+<div class="grid-x text-center expli">
+    <div class="medium-12 cell">
+        <ul class="menu simple align-center">
+            <li class="menu-text">CAP</li>
+            <li><a href="<?php echo INIT?>/adr" style="color: white;">ADR</a></li>
+            <li><a href="" style="color: white;">CONSEJERO</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="grid-container">
+    <div class="grid-x text-center nuevo">
+        <div class="medium-6 large-4 cell">
+            <i class="fi-mobile"> </i><i class="fi-laptop"> </i><i class="fi-monitor"></i>
+            <p>Multidispositivo</p>
+            <ul class="no-bullet">
+                <li>Disponible en todos los dispositivos</li>
+                <li>Úsalo en cualquier momento y lugar</li>
+            </ul>
+        </div>
+        <div class="medium-6 large-4 cell">
+            <i class="fi-target-two"></i>
+            <p>Test Oficiales</p>
+            <ul class="no-bullet">
+                <li>Simulacros Reales de Tráfico</li>
+                <li>Filtra por palabras claves</li>
+            </ul>
+        </div>
+        <div class="medium-6 large-4 cell">
+            <i class="fi-lock"></i>
+            <p>Seguro</p>
+            <ul class="no-bullet">
+                <li>Preguntas oficiales de Tráfico</li>
+                <li>Algoritmo mucho más eficiente</li>
+                <li>Totalmente Actualizado</li>
+            </ul>
+        </div>
+        <div class="medium-6 large-4 cell">
+            <i class="fi-checkbox"></i>
+            <p>Test personalizados</p>
+            <ul class="no-bullet">
+                <li>Básico, Cisterna, Explosivo, Radiactivo</li>
+                <li>Test no repetibles</li>
+            </ul>
+        </div>
+        <div class="medium-6 large-4 cell">
+            <i class="fi-graph-bar"></i>
+            <p>Estadísticas</p>
+            <ul class="no-bullet">
+                <li>Seguimientos de tus avances</li>
+                <li>Repaso preguntas erróneas</li>
+            </ul>
+        </div>
+        <div class="medium-6 large-4 cell">
+            <i class="fi-widget"></i>
+            <p>Práctico</p>
+            <ul class="no-bullet">
+                <li>Rápido, Sin publicidad ni Spam</li>
+                <li>Algoritmo eficiente</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="grid-x grid-margin-x grid-padding-x todo2">
+    <div class="medium-6 cell radius">
+        <h5 class="tarjeta text-center">TEST DEL ADR</h5>
+        <div class="callout primary llamada">
+            <ol>
+                <li><a data-open="mercancia-todas">Básico</a></li>
+                <div class="reveal" data-reveal id="mercancia-todas" data-animation-in="spin-in" data-animation-out="spin-out">
+                    <p class="h4">Test ADR</p>
+                    <p class="h5">Básico</p>
+                    <div class="callout success">
+                        <form id="fmt" action="<?php echo INIT?>/adr/test/mercancia/todas">
+                            <label>Número Preguntas
+                                <input type="text" class="preguntasMT" name="preguntas" pattern="^(10|[1-9][0-9]|100)$" required>
+                            </label>
+                            <p class="help-text">El máximo será 100, y el mínimo 10</p>
+                            <input type="submit" id="beginMercanciaMT" class="button" value="Comenzar Examen">
+                            <p style="color: red" class="help-text MT"></p>
+                        </form>
+                    </div>
+                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <li><a data-open="mercancia-conduccion">Cisterna</a></li>
+                <div class="reveal" data-reveal id="mercancia-conduccion" data-animation-in="spin-in" data-animation-out="spin-out">
+                    <p class="h4">Test de ADR</p>
+                    <p class="h5">Cisterna</p>
+                    <div class="callout success">
+                        <form action="<?php echo INIT?>/adr/test/mercancia/conduccion-racional">
+                            <label>Número Preguntas
+                                <input type="text" class="preguntasMC" name="preguntas" pattern="^(10|[1-9][0-9]|100)$" required>
+                            </label>
+                            <p class="help-text">El máximo será 100, y el mínimo 10</p>
+                            <input type="submit" id="beginMercanciaMC" class="button" value="Comenzar Examen">
+                            <p style="color: red" class="help-text MC"></p>
+                        </form>
+                    </div>
+                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <li><a data-open="mercancia-aplicacion">Explosiva</a></li>
+                <div class="reveal" data-reveal id="mercancia-aplicacion" data-animation-in="spin-in" data-animation-out="spin-out">
+                    <p class="h4">Test de ADR</p>
+                    <p class="h5">Explosiva</p>
+                    <div class="callout success">
+                        <form action="<?php echo INIT?>/adr/test/mercancia/aplicacion-reglamento">
+                            <label>Número Preguntas
+                                <input type="text" class="preguntasMA" name="preguntas" pattern="^(10|[1-9][0-9]|100)$" required>
+                            </label>
+                            <p class="help-text">El máximo será 100, y el mínimo 10</p>
+                            <input type="submit" id="beginMercanciaMA" class="button" value="Comenzar Examen">
+                            <p style="color: red" class="help-text MA"></p>
+                        </form>
+                    </div>
+                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <li><a data-open="mercancia-salud">Radiactiva</a></li>
+                <div class="reveal" data-reveal id="mercancia-salud" data-animation-in="spin-in" data-animation-out="spin-out">
+                    <p class="h4">Test de ADR</p>
+                    <p class="h5">Radiactiva</p>
+                    <div class="callout success">
+                        <form action="<?php echo INIT?>/adr/test/mercancia/salud-seguridad-logistica">
+                            <label>Número Preguntas
+                                <input type="text" class="preguntasMS" name="preguntas" pattern="\[0-9]{1}" required>
+                            </label>
+                            <p class="help-text">El máximo será 100, y el mínimo 10</p>
+                            <input type="submit" id="beginMercanciaMS" class="button" value="Comenzar Examen">
+                            <p style="color: red" class="help-text MS"></p>
+                        </form>
+                    </div>
+                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+            </ol>
+        </div>
+    </div>
+</div>
+
+<div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+        <nav class="off-canvas position-left" id="menuPrincipal" data-off-canvas data-transition="push">
+            <?php
+                $path = ROOT_DIR.DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR;
+                require_once $path.DIRECTORY_SEPARATOR.'navegacion.phtml';
+            ?>
+        </nav>
+
+        <div class="off-canvas-content" data-off-canvas-content>
+
+        </div>
+        <?php
+            require_once $path.DIRECTORY_SEPARATOR.'footer.phtml';
+        ?>
+    </div>
+</div>
+
+<?php if (empty($_SESSION['ocultarC'])) {
+    require_once $path.DIRECTORY_SEPARATOR.'ocultar.phtml';
+}?>
+
+<script src="<?php echo INIT?>/modules/jquery/dist/jquery.js"></script>
+<script src="<?php echo INIT?>/modules/what-input/dist/what-input.js"></script>
+<!--<script src="<?php echo INIT?>/modules/foundation-sites/dist/js/foundation.js"></script>-->
+<script src="<?php echo INIT?>/src/js/adr.min.js"></script>
+<script src="<?php echo INIT?>/src/js/app.js"></script>
+
+<?php if (MODO=='production'){ ?>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-50863084-1', 'mundocap.es');
+        ga('send', 'pageview');
+
+    </script>
+<?php } ?>
+</body>
+</html>
